@@ -1,0 +1,47 @@
+# Polish translation, by Tymon Marek (TymonMarek)
+
+lang_load_success: "Bingo! Załadowano język en_PL!"
+
+plugin_success_load: "Pomyślnie załadowano Lunamatic v"
+
+update_check: "Sprawdzam aktualizacje..."
+update_found: "Dostępna nowa wersja %a (jesteś na v%b)! Pobierz tutaj: https://modrinth.com/plugin/lunamatic"
+update_error: "Nie można sprawdzić aktualizacji:"
+
+cmd_running: "Używasz Lunamatic v"
+
+cmd_reload_success: "Lunamatic uruchomił się ponownie!"
+cmd_reload_fail: "Lunamatic napotkał błąd: "
+cmd_reload_warn: "Po resetowanie Lunamatic mogą wystąpić pewne problemy.\nUżywaj przeładowania tylko na testy."
+
+cmd_lang: "Załadowany język: "
+
+cmd_blood_moon_enabled: "Czerwony księżyc włączony: "
+cmd_blood_moon_now: "Czerwony księżyc teraz: "
+cmd_blood_moon_today: "Czerwony księżyc dzisiaj: "
+
+cmd_harv_moon_enabled: "Księżyc zbiorów włączony: "
+cmd_harv_moon_now: "Księżyc zbiorów teraz: "
+cmd_harv_moon_today: "Księżyc zbiorów dzisiaj: "
+
+cmd_disabled_worlds: "Wyłączone światy: "
+cmd_curr_phase: "Bieżąca faza księżyca dla świata"
+
+sched_invalid_blood: "Wykryto nieprawidłowy czerwony księżyc! Pomijanie..."
+sched_invalid_harv: "Wykryto nieprawidłowy księżyc zbiorów! Pomijanie..."
+
+sched_daydef_reset: "Resetowanie domyślnych ustawień na dziś..."
+
+harvest_moon_tonight: "Księżyc zbiorów dzisiaj w nocy."
+full_moon_tonight: "Pełnia księżyca dzisiaj w nocy."
+blood_moon_tonight: "Czerwony księżyc dzisiaj w nocy."
+new_moon_tonight: "Nowy księżyc dzisiaj w nocy."
+
+grass_growing: "Słyszysz rosnącą trawę?"
+lucky_feel: "Czujesz się szczęśliwy!"
+wary_feel: "Czujesz się ostrożny..."
+
+blood_moon_sleep: "Czerwony księżyc świeci! Nie możesz spać!"
+
+# DO NOT CHANGE THIS VARIABLE! Mismatch of lang_ver can cause some of the translations missing.
+lang_ver: "2"
