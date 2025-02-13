@@ -1,0 +1,45 @@
+# Default english translation, Use as template for translating!
+
+lang_load_success: "成功加载语言 zh-CN！"
+
+plugin_success_load: "成功启用 Lunamatic v"
+
+update_check: "正在检查更新..."
+update_found: "有新版本 %a 可用 (当前为 v%b)！请在此下载：https://modrinth.com/plugin/lunamatic"
+update_error: "无法检查更新："
+up_to_date: "You are up to date!"
+
+cmd_running: "您正在运行 Lunamatic v"
+
+cmd_reload_success: "Lunamatic 重载成功！"
+cmd_reload_fail: "Lunamatic 遇到错误："
+cmd_reload_warn: "通过重载 Lunamatic，可能会出现一些问题。仅用于测试目的使用重载功能。"
+
+cmd_lang: "已加载的语言："
+
+cmd_blood_moon_enabled: "血月已启用："
+cmd_blood_moon_now: "现在是血月："
+cmd_blood_moon_today: "今天会有血月："
+
+cmd_harv_moon_enabled: "丰收月已启用："
+cmd_harv_moon_now: "现在是丰收月："
+cmd_harv_moon_today: "今天会有丰收月："
+
+cmd_disabled_worlds: "禁用的世界："
+cmd_curr_phase: "世界当前的月亮阶段 "
+
+sched_invalid_blood: "检测到无效的血月！跳过..."
+sched_invalid_harv: "检测到无效的丰收月！跳过..."
+
+sched_daydef_reset: "正在重置当天的默认设置..."
+
+harvest_moon_tonight: "今晚有丰收月。"
+full_moon_tonight: "今晚是满月。"
+blood_moon_tonight: "今晚是血月。"
+new_moon_tonight: "今晚是新月。"
+
+grass_growing: "你.. 听到了草生长的声音？"
+lucky_feel: "你感到幸运！"
+wary_feel: "你感到警惕..."
+
+blood_moon_sleep: "血月照耀！你无法入睡！"
