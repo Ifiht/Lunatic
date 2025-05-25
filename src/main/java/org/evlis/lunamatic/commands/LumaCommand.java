@@ -59,8 +59,14 @@ public class LumaCommand extends BaseCommand {
                 getLangManager().loadTranslations(); // Reload translations
             }
 
-            if (Integer.parseInt(getLangManager().getTranslation("lang_ver")) != REQUIRED_LANG_VER) {
+            String langVerStr = getLangManager().getTranslation("lang_ver");
+            if (langVerStr.startsWith("v")) {
+                langVerStr = langVerStr.substring(1);
+            }
+            if (Integer.parseInt(langVerStr) != REQUIRED_LANG_VER) {
                 logger.info("Unsupported language version! Falling back to the default language (en_US).");
+                GlobalVars.lang = "en_US"; // Set to default language
+                getLangManager().loadTranslations(); // Reload translations
             }
 
             logger.info(getLangManager().getTranslation("lang_load_success"));
@@ -105,8 +111,12 @@ public class LumaCommand extends BaseCommand {
         World world = player.getWorld();
         ResetFlags.resetAll();
         logger.info("Current game time: " + world.getFullTime());
-        world.setFullTime(world.getFullTime() + 24000L);
-        logger.info("New game time: " + world.getFullTime());
+        
+        // Use Folia's global scheduler for time modification
+        plugin.getServer().getGlobalRegionScheduler().run(plugin, task -> {
+            world.setFullTime(world.getFullTime() + 24000L);
+            logger.info("New game time: " + world.getFullTime());
+        });
     }
 
     @Subcommand("makebloodmoon")
@@ -122,7 +132,9 @@ public class LumaCommand extends BaseCommand {
             ResetFlags.resetAll();
             long moonskip = (long)GlobalVars.newMoonOffset.getOrDefault(moonPhase, 0);
             logger.info("Skipping ahead by " + moonskip + " seconds.");
-            world.setFullTime(world.getFullTime() + moonskip);
+            plugin.getServer().getGlobalRegionScheduler().run(plugin, task -> {
+                world.setFullTime(world.getFullTime() + moonskip);
+            });
         }
         if(!GlobalVars.bloodMoonToday){
             GlobalVars.bloodMoonToday = true;
@@ -144,7 +156,9 @@ public class LumaCommand extends BaseCommand {
         if(moonPhase != MoonPhase.FULL_MOON) {
             long moonskip = (long)GlobalVars.fullMoonOffset.getOrDefault(moonPhase, 0);
             logger.info("Skipping ahead by " + moonskip + " seconds.");
-            world.setFullTime(world.getFullTime() + moonskip);
+            plugin.getServer().getGlobalRegionScheduler().run(plugin, task -> {
+                world.setFullTime(world.getFullTime() + moonskip);
+            });
         }
         if(!GlobalVars.harvestMoonToday){
             GlobalVars.harvestMoonToday = true;

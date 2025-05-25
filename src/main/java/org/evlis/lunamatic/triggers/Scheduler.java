@@ -83,10 +83,10 @@ public class Scheduler {
                         if (GlobalVars.harvestMoonToday && !GlobalVars.harvestMoonNow) {
                             GlobalVars.harvestMoonNow = true;
                             // Ensure global var reset
-                            plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+                            globalRegionScheduler.runDelayed(plugin, (scheduledTask) -> {
                                 ResetFlags.resetTickSpeed(world);
                             }, 24000 - (int)time);
-                            plugin.getServer().getScheduler().runTaskLater(plugin, ResetFlags::resetAll, 24000 - (int)time);
+                            globalRegionScheduler.runDelayed(plugin, (scheduledTask) -> ResetFlags.resetAll(), 24000 - (int)time);
                             totoroDance.setRandomTickSpeed(world, 30);
                             totoroDance.setClearSkies(world, (24000 - (int)time));
                             PlayerMessage.Send(playerList, getTranslationManager().getTranslation("grass_growing"), NamedTextColor.GOLD);
@@ -107,7 +107,7 @@ public class Scheduler {
                         if (GlobalVars.bloodMoonToday && !GlobalVars.bloodMoonNow) {
                             GlobalVars.bloodMoonNow = true;
                             // Ensure global var reset
-                            plugin.getServer().getScheduler().runTaskLater(plugin, ResetFlags::resetAll, 24000 - (int)time);
+                            globalRegionScheduler.runDelayed(plugin, (scheduledTask) -> ResetFlags.resetAll(), 24000 - (int)time);
                         } else { // if for some reason both flags are still true, we have an invalid state
                             logger.warning(getTranslationManager().getTranslation("sched_invalid_blood"));
                             GlobalVars.bloodMoonToday = false;

@@ -133,6 +133,21 @@ public class LangManager {
     }
 
     public String getTranslation(String key, String language) {
+        // Special handling for language version key
+        if ("lang_ver".equals(key)) {
+            // Extract version from filename (e.g. zh_CN.v3.yml)
+            Pattern versionPattern = Pattern.compile(".*\\.v(\\d+)\\.yml$");
+            for (String langFile : langs.keySet()) {
+                if (langFile.startsWith(language)) {
+                    Matcher matcher = versionPattern.matcher(langFile);
+                    if (matcher.find()) {
+                        return "v" + matcher.group(1);
+                    }
+                }
+            }
+            return "v1"; // Default version if not found
+        }
+
         FileConfiguration languageConfig = langs.get(language);
         String translation = null;
 
@@ -166,4 +181,3 @@ public class LangManager {
         return translationFile.exists();
     }
 }
-
